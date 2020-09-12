@@ -52,7 +52,7 @@ let private print (future: Status[,]) =
 [<EntryPoint>]
 let main _ =
     // randomly initialize our grid
-    let mutable grid = Array2D.init rows columns (fun _ _ -> RandomNumberGenerator.GetInt32(0, 2) |> enum<Status>)
+    let mutable grid = Array2D.init rows columns (fun _ _ -> RandomNumberGenerator.GetInt32(0, 2) |> enum)
     Console.CancelKeyPress.Add(
         fun _ -> 
             runSimulation <- false
