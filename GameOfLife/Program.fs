@@ -34,7 +34,7 @@ let private nextGeneration (currentGrid: Status [,]) =
                 // A new cell is born 
                 | Status.``💀`` when aliveNeighbors = 3 -> Status.``😁``
                 // stays the same
-                | _ -> currentCell
+                | unchanged -> unchanged
     nextGeneration
 
 let private print (future: Status[,]) =
