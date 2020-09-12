@@ -17,22 +17,22 @@ let private nextGeneration (currentGrid: Status [,]) =
     for row in 1..(rows-2) do
         for column in 1..(columns-2) do
             // find your alive neighbor
-            let mutable ``😁Neighbors`` = 0
+            let mutable aliveNeighbors = 0
             for i in -1..1 do
                 for j in -1..1 do
-                    ``😁Neighbors`` <- ``😁Neighbors`` + int currentGrid.[row+i, column+i]
+                    aliveNeighbors <- aliveNeighbors + int currentGrid.[row+i, column+i]
             let currentCell = currentGrid.[row, column]
             // The cell needs to be subtracted 
             // from its neighbours as it was  
             // counted before 
-            ``😁Neighbors`` <- ``😁Neighbors`` - int currentCell
+            aliveNeighbors <- aliveNeighbors - int currentCell
             // Implementing the Rules of Life 
             nextGeneration.[row,column] <-
                 match currentCell with
                 // Cell is lonely and dies OR Cell dies due to over population
-                | Status.``😁`` when ``😁Neighbors`` < 2 || ``😁Neighbors`` > 3 -> Status.``💀``
+                | Status.``😁`` when aliveNeighbors < 2 || aliveNeighbors > 3 -> Status.``💀``
                 // A new cell is born 
-                | Status.``💀`` when ``😁Neighbors`` = 3 -> Status.``😁``
+                | Status.``💀`` when aliveNeighbors = 3 -> Status.``😁``
                 // stays the same
                 | _ -> currentCell
     nextGeneration
