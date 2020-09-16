@@ -13,12 +13,12 @@ let private nextGeneration (grid: Status [,]) =
     grid
     |> Array2D.mapi (fun r c ->
         let aliveNeighbors =
-            ((seq { -1 .. 1 }, seq { -1 .. 1 })
+            (seq { -1 .. 1 }, seq { -1 .. 1 })
             ||> Seq.allPairs
             |> Seq.choose (function | (0, 0) -> None | x -> Some x) //skip center
             |> Seq.map (fun (x, y) ->  x + r, y + c)
             |> Seq.filter (fun (x, y) -> x < rows && y < columns && x >= 0 && y >= 0)
-            |> Seq.sumBy (fun (x, y) -> int grid.[x, y])) 
+            |> Seq.sumBy (fun (x, y) -> int grid.[x, y])
         function
         // Cell is lonely and dies OR Cell dies due to over population
         | Status.``😁`` when aliveNeighbors < 2 || aliveNeighbors > 3 -> Status.``💀``
