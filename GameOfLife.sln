@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "GameOfLife\GameOfLife.csproj", "{980E6F7A-195D-4F06-9398-B07DD274D20A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "GameOfLife\GameOfLife.fsproj", "{980E6F7A-195D-4F06-9398-B07DD274D20A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
