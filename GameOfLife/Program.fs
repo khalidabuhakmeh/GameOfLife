@@ -30,7 +30,7 @@ let private nextGeneration (grid: Status [,]) =
 
 let private stringify (grid: Status [,]) =
     grid
-    |> Array2D.mapi (fun _ y status -> status |> if y = columns - 1 then sprintf "%A\n" else string)
+    |> Array2D.mapi (fun _ y -> if y = columns - 1 then sprintf "%A\n" else string)
     |> Seq.cast<string>
     |> String.concat String.Empty
 
